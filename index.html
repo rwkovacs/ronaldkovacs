@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>R.W. Kovacs — Software Engineer</title>
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="nav-inner">
+      <span class="nav-logo">&lt;rwkovacs /&gt;</span>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact" class="btn-nav">Hire Me</a></li>
+      </ul>
+      <button class="burger" id="burger" aria-label="Menu">&#9776;</button>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section id="hero">
+    <div class="hero-bg">
+      <canvas id="particles"></canvas>
+    </div>
+    <div class="hero-content">
+      <p class="hero-greeting">Hey there, I'm</p>
+      <h1 class="hero-name">R.W. Kovacs</h1>
+      <h2 class="hero-title">
+        <span class="typed" id="typed"></span><span class="cursor">|</span>
+      </h2>
+      <p class="hero-sub">
+        I build fast, scalable, and beautifully crafted software that solves real problems.
+        Obsessed with clean code, great UX, and continuous learning.
+      </p>
+      <div class="hero-ctas">
+        <a href="#projects" class="btn-primary">See My Work</a>
+        <a href="#contact" class="btn-ghost">Get In Touch</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span class="stat-num" data-target="50">0</span><span>+</span><p>Projects Shipped</p></div>
+        <div class="stat"><span class="stat-num" data-target="8">0</span><span>+</span><p>Years Experience</p></div>
+        <div class="stat"><span class="stat-num" data-target="99">0</span><span>%</span><p>Client Satisfaction</p></div>
+      </div>
+    </div>
+    <div class="scroll-indicator">
+      <span></span>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+    <div class="container">
+      <div class="section-label">01. About Me</div>
+      <div class="about-grid">
+        <div class="about-text fade-in">
+          <h2>Passionate engineer.<br/>Pragmatic problem-solver.</h2>
+          <p>
+            I'm a full-stack software engineer with 8+ years of experience turning complex challenges into
+            elegant, production-ready solutions. From architecting distributed microservices to crafting
+            pixel-perfect UIs, I care deeply about every layer of the stack.
+          </p>
+          <p>
+            I thrive in collaborative environments, move fast without breaking things, and champion
+            engineering best practices — robust testing, thorough code review, and clear documentation.
+            When I'm not writing code, I'm mentoring junior devs, contributing to open source, or
+            exploring the latest in AI/ML tooling.
+          </p>
+          <div class="about-highlights">
+            <div class="highlight"><span class="hl-icon">🏗️</span><span>System Design</span></div>
+            <div class="highlight"><span class="hl-icon">🚀</span><span>Performance Optimization</span></div>
+            <div class="highlight"><span class="hl-icon">🔒</span><span>Security-First Mindset</span></div>
+            <div class="highlight"><span class="hl-icon">🤝</span><span>Team Leadership</span></div>
+          </div>
+        </div>
+        <div class="about-visual fade-in">
+          <div class="code-card">
+            <div class="code-header">
+              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              <span class="code-filename">developer.ts</span>
+            </div>
+            <pre class="code-body"><code><span class="kw">const</span> <span class="fn">developer</span> = {
+  <span class="prop">name</span>: <span class="str">"R.W. Kovacs"</span>,
+  <span class="prop">role</span>: <span class="str">"Senior Software Engineer"</span>,
+  <span class="prop">location</span>: <span class="str">"Remote / Worldwide"</span>,
+  <span class="prop">languages</span>: [
+    <span class="str">"TypeScript"</span>, <span class="str">"Python"</span>,
+    <span class="str">"Go"</span>, <span class="str">"Rust"</span>
+  ],
+  <span class="prop">passions</span>: [
+    <span class="str">"Clean Architecture"</span>,
+    <span class="str">"Developer Experience"</span>,
+    <span class="str">"Open Source"</span>
+  ],
+  <span class="prop">available</span>: <span class="bool">true</span>,
+  <span class="fn">hire</span>: () =&gt; <span class="str">"Best decision ever 🚀"</span>
+};</code></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="section section-dark">
+    <div class="container">
+      <div class="section-label">02. Skills & Technologies</div>
+      <h2 class="section-title">What I Work With</h2>
+      <div class="skills-grid">
+
+        <div class="skill-category fade-in">
+          <h3>Frontend</h3>
+          <div class="skill-bars">
+            <div class="skill-bar"><span>React / Next.js</span><div class="bar"><div class="bar-fill" data-width="95"></div></div><span class="pct">95%</span></div>
+            <div class="skill-bar"><span>TypeScript</span><div class="bar"><div class="bar-fill" data-width="92"></div></div><span class="pct">92%</span></div>
+            <div class="skill-bar"><span>Vue / Nuxt</span><div class="bar"><div class="bar-fill" data-width="80"></div></div><span class="pct">80%</span></div>
+            <div class="skill-bar"><span>CSS / Tailwind</span><div class="bar"><div class="bar-fill" data-width="90"></div></div><span class="pct">90%</span></div>
+          </div>
+        </div>
+
+        <div class="skill-category fade-in">
+          <h3>Backend</h3>
+          <div class="skill-bars">
+            <div class="skill-bar"><span>Node.js / Express</span><div class="bar"><div class="bar-fill" data-width="93"></div></div><span class="pct">93%</span></div>
+            <div class="skill-bar"><span>Python / FastAPI</span><div class="bar"><div class="bar-fill" data-width="88"></div></div><span class="pct">88%</span></div>
+            <div class="skill-bar"><span>Go</span><div class="bar"><div class="bar-fill" data-width="78"></div></div><span class="pct">78%</span></div>
+            <div class="skill-bar"><span>GraphQL</span><div class="bar"><div class="bar-fill" data-width="85"></div></div><span class="pct">85%</span></div>
+          </div>
+        </div>
+
+        <div class="skill-category fade-in">
+          <h3>Infrastructure & Data</h3>
+          <div class="skill-bars">
+            <div class="skill-bar"><span>AWS / GCP</span><div class="bar"><div class="bar-fill" data-width="87"></div></div><span class="pct">87%</span></div>
+            <div class="skill-bar"><span>Docker / Kubernetes</span><div class="bar"><div class="bar-fill" data-width="82"></div></div><span class="pct">82%</span></div>
+            <div class="skill-bar"><span>PostgreSQL / Redis</span><div class="bar"><div class="bar-fill" data-width="90"></div></div><span class="pct">90%</span></div>
+            <div class="skill-bar"><span>CI/CD Pipelines</span><div class="bar"><div class="bar-fill" data-width="88"></div></div><span class="pct">88%</span></div>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="tech-pills fade-in">
+        <span>Git</span><span>Linux</span><span>Terraform</span><span>Kafka</span>
+        <span>ElasticSearch</span><span>gRPC</span><span>WebSockets</span>
+        <span>Jest / Vitest</span><span>Playwright</span><span>OpenAI API</span>
+        <span>LangChain</span><span>Figma</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section">
+    <div class="container">
+      <div class="section-label">03. Projects</div>
+      <h2 class="section-title">Things I've Built</h2>
+      <div class="projects-grid">
+
+        <div class="project-card featured fade-in">
+          <div class="project-top">
+            <span class="project-badge">Featured</span>
+            <div class="project-links">
+              <a href="#" title="GitHub" class="proj-link">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+              <a href="#" title="Live Demo" class="proj-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3>CloudSync Platform</h3>
+          <p>A real-time file synchronization platform handling 10M+ daily active users. Built with a distributed event-driven architecture, achieving sub-50ms sync latency globally.</p>
+          <div class="project-stack"><span>React</span><span>Go</span><span>Kafka</span><span>Redis</span><span>AWS</span></div>
+          <div class="project-metrics">
+            <span>⚡ 50ms latency</span>
+            <span>👥 10M+ DAU</span>
+            <span>🟢 99.99% uptime</span>
+          </div>
+        </div>
+
+        <div class="project-card fade-in">
+          <div class="project-top">
+            <div class="project-links">
+              <a href="#" title="GitHub" class="proj-link">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3>AI Code Review Bot</h3>
+          <p>GitHub bot that performs intelligent code reviews using LLMs, catching bugs, security issues, and style violations before human review. Deployed across 200+ repos.</p>
+          <div class="project-stack"><span>Python</span><span>FastAPI</span><span>OpenAI</span><span>GitHub API</span></div>
+        </div>
+
+        <div class="project-card fade-in">
+          <div class="project-top">
+            <div class="project-links">
+              <a href="#" title="GitHub" class="proj-link">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+              <a href="#" title="Live Demo" class="proj-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3>QueryForge ORM</h3>
+          <p>Type-safe ORM for Node.js with automatic query optimization, migrations, and a zero-config developer experience. 2.8k GitHub stars and used in production by 50+ companies.</p>
+          <div class="project-stack"><span>TypeScript</span><span>PostgreSQL</span><span>SQLite</span><span>MySQL</span></div>
+        </div>
+
+        <div class="project-card fade-in">
+          <div class="project-top">
+            <div class="project-links">
+              <a href="#" title="GitHub" class="proj-link">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0 0 24 12c0-6.63-5.37-12-12-12z"/></svg>
+              </a>
+            </div>
+          </div>
+          <h3>Nexus Dashboard</h3>
+          <p>Real-time analytics dashboard for SaaS products with customizable widgets, live charts, user tracking, and automated anomaly detection powered by statistical models.</p>
+          <div class="project-stack"><span>Next.js</span><span>D3.js</span><span>ClickHouse</span><span>WebSockets</span></div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- EXPERIENCE -->
+  <section id="experience" class="section section-dark">
+    <div class="container">
+      <div class="section-label">04. Experience</div>
+      <h2 class="section-title">Where I've Worked</h2>
+      <div class="timeline">
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="tl-header">
+              <div>
+                <h3>Senior Software Engineer</h3>
+                <span class="company">Stripe</span>
+              </div>
+              <span class="period">2022 — Present</span>
+            </div>
+            <ul>
+              <li>Led migration of core payment processing pipeline to event-driven architecture, reducing latency by 40% and handling 2M+ TPS.</li>
+              <li>Architected and shipped the Stripe Tax API used by 15,000+ businesses across 40 countries.</li>
+              <li>Mentored a team of 6 engineers, established quarterly engineering guilds, and drove adoption of team-wide testing standards.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="tl-header">
+              <div>
+                <h3>Software Engineer II</h3>
+                <span class="company">Shopify</span>
+              </div>
+              <span class="period">2019 — 2022</span>
+            </div>
+            <ul>
+              <li>Built the storefront performance monitoring system, improving average page load times by 35% for 1.7M merchants.</li>
+              <li>Designed and implemented a GraphQL federation layer consolidating 20+ internal microservices.</li>
+              <li>Shipped Shop Pay's installment checkout flow, contributing to a 22% increase in conversion rate.</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="timeline-item fade-in">
+          <div class="timeline-marker"></div>
+          <div class="timeline-content">
+            <div class="tl-header">
+              <div>
+                <h3>Software Engineer</h3>
+                <span class="company">Cloudflare</span>
+              </div>
+              <span class="period">2017 — 2019</span>
+            </div>
+            <ul>
+              <li>Worked on the Workers runtime, extending V8 isolate lifecycle management for serverless execution at the edge.</li>
+              <li>Contributed to the Cloudflare Pages build system, reducing median build times from 4m to 45s.</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact" class="section">
+    <div class="container">
+      <div class="section-label">05. Contact</div>
+      <h2 class="section-title">Let's Work Together</h2>
+      <p class="contact-sub">
+        I'm currently open to senior and staff engineering roles, technical co-founder opportunities,
+        and select freelance projects. If you think we'd be a great fit, let's talk.
+      </p>
+      <div class="contact-grid">
+        <div class="contact-card fade-in">
+          <div class="contact-icon">📧</div>
+          <h3>Email</h3>
+          <a href="mailto:hello@rwkovacs.dev">hello@rwkovacs.dev</a>
+        </div>
+        <div class="contact-card fade-in">
+          <div class="contact-icon">💼</div>
+          <h3>LinkedIn</h3>
+          <a href="#">linkedin.com/in/rwkovacs</a>
+        </div>
+        <div class="contact-card fade-in">
+          <div class="contact-icon">🐙</div>
+          <h3>GitHub</h3>
+          <a href="#">github.com/rwkovacs</a>
+        </div>
+        <div class="contact-card fade-in">
+          <div class="contact-icon">🐦</div>
+          <h3>Twitter / X</h3>
+          <a href="#">@rwkovacs</a>
+        </div>
+      </div>
+      <div class="contact-cta fade-in">
+        <a href="mailto:hello@rwkovacs.dev" class="btn-primary btn-large">Say Hello 👋</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>Designed &amp; Built by R.W. Kovacs &nbsp;·&nbsp; 2026</p>
+    <p class="footer-sub">Made with passion, caffeine, and an unhealthy love for TypeScript.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
