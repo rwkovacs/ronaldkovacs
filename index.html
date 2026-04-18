@@ -3,101 +3,696 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hello World</title>
+  <title>APEX BIO — Supplements & Nootropics</title>
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
+    :root {
+      --bg: #080810;
+      --surface: #111120;
+      --surface2: #1a1a2e;
+      --border: #2a2a45;
+      --accent: #00e5ff;
+      --accent2: #a855f7;
+      --text: #e8e8f0;
+      --muted: #8888aa;
+    }
+
+    html { scroll-behavior: smooth; }
+
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-      background: #0f0f1a;
-      color: #e8e8f0;
-      min-height: 100vh;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
+    }
+
+    /* NAV */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 2rem;
+      background: rgba(8, 8, 16, 0.85);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav-logo {
+      font-size: 1.4rem;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .nav-links { display: flex; gap: 2rem; list-style: none; }
+    .nav-links a { color: var(--muted); text-decoration: none; font-size: 0.9rem; letter-spacing: 0.05em; transition: color 0.2s; }
+    .nav-links a:hover { color: var(--accent); }
+
+    .nav-cta {
+      background: var(--accent);
+      color: #000;
+      border: none;
+      padding: 0.5rem 1.25rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      letter-spacing: 0.05em;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .nav-cta:hover { opacity: 0.85; }
+
+    /* HERO */
+    .hero {
+      min-height: 92vh;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 2rem;
-      padding: 2rem;
+      text-align: center;
+      padding: 4rem 2rem;
+      background:
+        radial-gradient(ellipse 80% 50% at 50% 0%, rgba(0,229,255,0.08) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 40% at 80% 100%, rgba(168,85,247,0.08) 0%, transparent 70%);
     }
 
-    .hero {
-      text-align: center;
+    .hero-eyebrow {
+      display: inline-block;
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      border: 1px solid rgba(0,229,255,0.3);
+      padding: 0.3rem 0.9rem;
+      border-radius: 100px;
+      margin-bottom: 1.5rem;
     }
 
     h1 {
-      font-size: clamp(2.5rem, 8vw, 5rem);
-      font-weight: 800;
-      background: linear-gradient(135deg, #a78bfa, #60a5fa, #34d399);
+      font-size: clamp(2.8rem, 8vw, 6rem);
+      font-weight: 900;
+      letter-spacing: -0.03em;
+      line-height: 1.05;
+      max-width: 14ch;
+    }
+
+    h1 span {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
       background-clip: text;
-      letter-spacing: -0.02em;
-      line-height: 1.1;
     }
 
-    p {
-      margin-top: 1rem;
-      font-size: 1.125rem;
-      color: #9999bb;
-      max-width: 40ch;
+    .hero p {
+      margin-top: 1.5rem;
+      font-size: 1.2rem;
+      color: var(--muted);
+      max-width: 50ch;
     }
 
-    .card-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    .hero-btns {
+      margin-top: 2.5rem;
+      display: flex;
       gap: 1rem;
-      width: 100%;
-      max-width: 640px;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    .card {
-      background: #1a1a2e;
-      border: 1px solid #2a2a45;
-      border-radius: 12px;
-      padding: 1.5rem;
-      text-align: center;
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent), var(--accent2));
+      color: #fff;
+      border: none;
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: opacity 0.2s, transform 0.2s;
+    }
+    .btn-primary:hover { opacity: 0.9; transform: translateY(-2px); }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+      padding: 0.85rem 2rem;
+      border-radius: 8px;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
       transition: border-color 0.2s, transform 0.2s;
     }
+    .btn-secondary:hover { border-color: var(--accent); transform: translateY(-2px); }
 
-    .card:hover {
-      border-color: #a78bfa;
-      transform: translateY(-3px);
+    .hero-stats {
+      margin-top: 4rem;
+      display: flex;
+      gap: 3rem;
+      flex-wrap: wrap;
+      justify-content: center;
     }
 
-    .card .icon { font-size: 2rem; }
-    .card h2 { margin-top: 0.5rem; font-size: 1rem; color: #c8c8e8; }
-    .card p { margin-top: 0.25rem; font-size: 0.85rem; color: #7777aa; }
+    .stat { text-align: center; }
+    .stat-num { font-size: 2rem; font-weight: 900; color: var(--accent); }
+    .stat-label { font-size: 0.8rem; color: var(--muted); letter-spacing: 0.1em; }
 
+    /* SECTION SHARED */
+    section { padding: 5rem 2rem; max-width: 1200px; margin: 0 auto; }
+    .section-label {
+      font-size: 0.75rem;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--accent);
+      text-transform: uppercase;
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-size: clamp(1.8rem, 4vw, 2.8rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      line-height: 1.15;
+      margin-bottom: 1rem;
+    }
+    .section-sub { color: var(--muted); max-width: 55ch; margin-bottom: 3rem; }
+
+    /* CATEGORIES */
+    .categories { background: var(--surface); }
+    .categories > * { max-width: 1200px; margin: 0 auto; }
+    .categories section { padding: 5rem 2rem; }
+
+    .cat-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+    }
+
+    .cat-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.75rem 1.5rem;
+      cursor: pointer;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+    .cat-card:hover { border-color: var(--accent); transform: translateY(-4px); }
+    .cat-card .icon { font-size: 2.2rem; margin-bottom: 0.75rem; }
+    .cat-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.25rem; }
+    .cat-card p { font-size: 0.82rem; color: var(--muted); }
+
+    /* PRODUCTS */
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .product-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      overflow: hidden;
+      transition: border-color 0.2s, transform 0.2s;
+      display: flex;
+      flex-direction: column;
+    }
+    .product-card:hover { border-color: var(--accent2); transform: translateY(-4px); }
+
+    .product-img {
+      height: 180px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 4rem;
+      background: linear-gradient(135deg, #111120, #1a1a2e);
+    }
+
+    .product-body { padding: 1.25rem; flex: 1; display: flex; flex-direction: column; }
+
+    .product-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      color: var(--accent2);
+      text-transform: uppercase;
+      margin-bottom: 0.4rem;
+    }
+
+    .product-card h3 { font-size: 1.05rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .product-card p { font-size: 0.85rem; color: var(--muted); flex: 1; }
+
+    .product-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1.25rem;
+    }
+
+    .price { font-size: 1.3rem; font-weight: 800; color: var(--accent); }
+    .price-sub { font-size: 0.75rem; color: var(--muted); }
+
+    .add-btn {
+      background: var(--accent2);
+      color: #fff;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 6px;
+      font-weight: 700;
+      font-size: 0.85rem;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+    .add-btn:hover { opacity: 0.85; }
+
+    /* BADGE */
+    .badge {
+      display: inline-block;
+      font-size: 0.65rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      padding: 0.2rem 0.5rem;
+      border-radius: 4px;
+      margin-left: 0.5rem;
+      vertical-align: middle;
+    }
+    .badge-new { background: rgba(0,229,255,0.15); color: var(--accent); }
+    .badge-hot { background: rgba(255,80,80,0.15); color: #ff5050; }
+    .badge-sale { background: rgba(52,211,153,0.15); color: #34d399; }
+
+    /* WHY US */
+    .why-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .why-card {
+      border-left: 3px solid var(--accent);
+      padding: 1.25rem 1.5rem;
+      background: var(--surface);
+      border-radius: 0 10px 10px 0;
+    }
+    .why-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 0.4rem; }
+    .why-card p { font-size: 0.85rem; color: var(--muted); }
+
+    /* CTA BANNER */
+    .cta-banner {
+      background: linear-gradient(135deg, rgba(0,229,255,0.1), rgba(168,85,247,0.1));
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 4rem 2rem;
+      text-align: center;
+      margin: 0 2rem 5rem;
+    }
+    .cta-banner h2 { font-size: clamp(1.8rem, 4vw, 2.5rem); font-weight: 800; margin-bottom: 1rem; }
+    .cta-banner p { color: var(--muted); margin-bottom: 2rem; }
+
+    /* FOOTER */
     footer {
-      color: #555577;
-      font-size: 0.8rem;
+      border-top: 1px solid var(--border);
+      padding: 3rem 2rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 2rem;
+      justify-content: space-between;
+      align-items: center;
     }
+
+    .footer-logo {
+      font-size: 1.2rem;
+      font-weight: 900;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+    .footer-links a { color: var(--muted); text-decoration: none; font-size: 0.85rem; transition: color 0.2s; }
+    .footer-links a:hover { color: var(--text); }
+
+    footer p { color: var(--muted); font-size: 0.8rem; }
+
+    /* DIVIDER */
+    .full-bleed { width: 100%; }
   </style>
 </head>
 <body>
+
+  <!-- NAV -->
+  <nav>
+    <div class="nav-logo">APEX BIO</div>
+    <ul class="nav-links">
+      <li><a href="#products">Products</a></li>
+      <li><a href="#nootropics">Nootropics</a></li>
+      <li><a href="#stacks">Stacks</a></li>
+      <li><a href="#about">About</a></li>
+    </ul>
+    <button class="nav-cta">Shop Now</button>
+  </nav>
+
+  <!-- HERO -->
   <div class="hero">
-    <h1>Hello, World!</h1>
-    <p>A simple starting point for something great.</p>
+    <div class="hero-eyebrow">OPTIMIZE YOUR BIOLOGY</div>
+    <h1>Fuel Your <span>Peak Self</span></h1>
+    <p>Science-backed supplements, nootropics, and biohacking tools engineered for high performers.</p>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">Shop All Products</button>
+      <button class="btn-secondary" onclick="document.getElementById('stacks').scrollIntoView({behavior:'smooth'})">View Stacks</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num">50+</div>
+        <div class="stat-label">Products</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">3rd</div>
+        <div class="stat-label">Party Tested</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">GMP</div>
+        <div class="stat-label">Certified</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">10k+</div>
+        <div class="stat-label">Customers</div>
+      </div>
+    </div>
   </div>
 
-  <div class="card-grid">
-    <div class="card">
-      <div class="icon">🚀</div>
-      <h2>Fast</h2>
-      <p>Built with plain HTML & CSS — zero dependencies.</p>
-    </div>
-    <div class="card">
-      <div class="icon">🎨</div>
-      <h2>Beautiful</h2>
-      <p>Clean, modern design that works on any screen.</p>
-    </div>
-    <div class="card">
-      <div class="icon">🔧</div>
-      <h2>Customizable</h2>
-      <p>Easy to extend and make your own.</p>
-    </div>
+  <!-- CATEGORIES -->
+  <div class="full-bleed categories">
+    <section id="categories">
+      <div class="section-label">Browse By Category</div>
+      <div class="section-title">What Are You Optimizing?</div>
+      <p class="section-sub">From cognitive performance to longevity protocols — we've got your stack covered.</p>
+      <div class="cat-grid">
+        <div class="cat-card">
+          <div class="icon">🧠</div>
+          <h3>Nootropics</h3>
+          <p>Focus, memory & mental clarity</p>
+        </div>
+        <div class="cat-card">
+          <div class="icon">⚡</div>
+          <h3>Energy & Adaptogens</h3>
+          <p>Sustained energy without the crash</p>
+        </div>
+        <div class="cat-card">
+          <div class="icon">💪</div>
+          <h3>Performance</h3>
+          <p>Strength, endurance & recovery</p>
+        </div>
+        <div class="cat-card">
+          <div class="icon">🌙</div>
+          <h3>Sleep & Recovery</h3>
+          <p>Deep sleep & muscle repair</p>
+        </div>
+        <div class="cat-card">
+          <div class="icon">🔬</div>
+          <h3>Longevity</h3>
+          <p>NAD+, senolytics & more</p>
+        </div>
+        <div class="cat-card">
+          <div class="icon">🛡️</div>
+          <h3>Immune & Gut</h3>
+          <p>Microbiome & immune support</p>
+        </div>
+      </div>
+    </section>
   </div>
 
-  <footer>hello-world &copy; 2026</footer>
+  <!-- PRODUCTS -->
+  <section id="products">
+    <div class="section-label">Best Sellers</div>
+    <div class="section-title">Top-Rated Products</div>
+    <p class="section-sub">Our most popular formulas, rigorously tested and transparently dosed.</p>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="product-img">🧠</div>
+        <div class="product-body">
+          <div class="product-tag">Nootropic <span class="badge badge-hot">HOT</span></div>
+          <h3>Alpha Focus</h3>
+          <p>Alpha-GPC, Lion's Mane & Bacopa for razor-sharp focus and sustained cognitive output.</p>
+          <div class="product-footer">
+            <div>
+              <div class="price">$54.99</div>
+              <div class="price-sub">60 capsules</div>
+            </div>
+            <button class="add-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">⚡</div>
+        <div class="product-body">
+          <div class="product-tag">Energy <span class="badge badge-new">NEW</span></div>
+          <h3>Adapt & Thrive</h3>
+          <p>Ashwagandha KSM-66, Rhodiola & Eleuthero — cortisol control meets clean energy.</p>
+          <div class="product-footer">
+            <div>
+              <div class="price">$44.99</div>
+              <div class="price-sub">90 capsules</div>
+            </div>
+            <button class="add-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">🔬</div>
+        <div class="product-body">
+          <div class="product-tag">Longevity <span class="badge badge-new">NEW</span></div>
+          <h3>NMN + Resveratrol</h3>
+          <p>500mg NMN paired with trans-resveratrol to support NAD+ levels and cellular health.</p>
+          <div class="product-footer">
+            <div>
+              <div class="price">$79.99</div>
+              <div class="price-sub">30 servings</div>
+            </div>
+            <button class="add-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">🌙</div>
+        <div class="product-body">
+          <div class="product-tag">Sleep</div>
+          <h3>Deep Sleep Formula</h3>
+          <p>Magnesium glycinate, L-theanine, apigenin & low-dose melatonin for restorative sleep.</p>
+          <div class="product-footer">
+            <div>
+              <div class="price">$39.99</div>
+              <div class="price-sub">60 capsules</div>
+            </div>
+            <button class="add-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">💪</div>
+        <div class="product-body">
+          <div class="product-tag">Performance <span class="badge badge-sale">SALE</span></div>
+          <h3>Creatine HCl Pro</h3>
+          <p>3g creatine HCl — better solubility, no bloat, clinically effective dosing.</p>
+          <div class="product-footer">
+            <div>
+              <div class="price">$29.99</div>
+              <div class="price-sub">60 servings</div>
+            </div>
+            <button class="add-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">🛡️</div>
+        <div class="product-body">
+          <div class="product-tag">Gut Health</div>
+          <h3>Probiome Shield</h3>
+          <p>50B CFU multi-strain probiotic with prebiotic fiber for a resilient microbiome.</p>
+          <div class="product-footer">
+            <div>
+              <div class="price">$49.99</div>
+              <div class="price-sub">30 capsules</div>
+            </div>
+            <button class="add-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- NOOTROPICS SPOTLIGHT -->
+  <section id="nootropics">
+    <div class="section-label">Nootropics</div>
+    <div class="section-title">Cognitive Performance Stack</div>
+    <p class="section-sub">Each compound is chosen for evidence-backed mechanisms — not marketing hype.</p>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="product-img">🍄</div>
+        <div class="product-body">
+          <div class="product-tag">Functional Mushroom</div>
+          <h3>Lion's Mane Extract</h3>
+          <p>500mg dual-extract. Supports NGF production and long-term neuroplasticity.</p>
+          <div class="product-footer">
+            <div>
+              <div class="price">$34.99</div>
+              <div class="price-sub">60 capsules</div>
+            </div>
+            <button class="add-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">💊</div>
+        <div class="product-body">
+          <div class="product-tag">Cholinergic</div>
+          <h3>Alpha-GPC 600mg</h3>
+          <p>Highly bioavailable choline source for acetylcholine synthesis and memory encoding.</p>
+          <div class="product-footer">
+            <div>
+              <div class="price">$42.99</div>
+              <div class="price-sub">60 capsules</div>
+            </div>
+            <button class="add-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">🌿</div>
+        <div class="product-body">
+          <div class="product-tag">Adaptogen <span class="badge badge-hot">HOT</span></div>
+          <h3>Bacopa Monnieri</h3>
+          <p>45% bacosides. Enhances memory consolidation and reduces anxiety over time.</p>
+          <div class="product-footer">
+            <div>
+              <div class="price">$27.99</div>
+              <div class="price-sub">90 capsules</div>
+            </div>
+            <button class="add-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STACKS -->
+  <section id="stacks">
+    <div class="section-label">Pre-Built Stacks</div>
+    <div class="section-title">Bundle & Save</div>
+    <p class="section-sub">Curated combinations designed to work synergistically together.</p>
+    <div class="product-grid">
+
+      <div class="product-card">
+        <div class="product-img">🧬</div>
+        <div class="product-body">
+          <div class="product-tag">Stack <span class="badge badge-sale">SAVE 20%</span></div>
+          <h3>The Biohacker Stack</h3>
+          <p>NMN + Resveratrol, Alpha Focus, Deep Sleep Formula — the full longevity & performance protocol.</p>
+          <div class="product-footer">
+            <div>
+              <div class="price">$139.99</div>
+              <div class="price-sub">3 products bundled</div>
+            </div>
+            <button class="add-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">🎯</div>
+        <div class="product-body">
+          <div class="product-tag">Stack <span class="badge badge-sale">SAVE 15%</span></div>
+          <h3>The Focus Stack</h3>
+          <p>Alpha Focus + Alpha-GPC + Lion's Mane — for those who need to be cognitively ON all day.</p>
+          <div class="product-footer">
+            <div>
+              <div class="price">$109.99</div>
+              <div class="price-sub">3 products bundled</div>
+            </div>
+            <button class="add-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-card">
+        <div class="product-img">🏋️</div>
+        <div class="product-body">
+          <div class="product-tag">Stack <span class="badge badge-sale">SAVE 15%</span></div>
+          <h3>The Athlete Stack</h3>
+          <p>Creatine HCl Pro + Adapt & Thrive + Probiome Shield — train harder, recover faster.</p>
+          <div class="product-footer">
+            <div>
+              <div class="price">$99.99</div>
+              <div class="price-sub">3 products bundled</div>
+            </div>
+            <button class="add-btn">Add to Cart</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section id="about">
+    <div class="section-label">Why Apex Bio</div>
+    <div class="section-title">No Fluff. No Proprietary Blends.</div>
+    <p class="section-sub">We believe you deserve to know exactly what you're putting in your body and why.</p>
+    <div class="why-grid">
+      <div class="why-card">
+        <h3>Transparent Labels</h3>
+        <p>Every ingredient, every dose — fully disclosed. No proprietary blends hiding underdosed compounds.</p>
+      </div>
+      <div class="why-card">
+        <h3>3rd Party Tested</h3>
+        <p>Every batch is independently lab tested for purity, potency, and contaminants. Results published.</p>
+      </div>
+      <div class="why-card">
+        <h3>GMP Certified</h3>
+        <p>Manufactured in FDA-registered, GMP-certified facilities in the USA.</p>
+      </div>
+      <div class="why-card">
+        <h3>Science First</h3>
+        <p>Ingredients selected based on peer-reviewed research, not trending ingredients or marketing copy.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BANNER -->
+  <div class="cta-banner">
+    <h2>Ready to Optimize?</h2>
+    <p>Join 10,000+ high performers using Apex Bio to unlock their potential.</p>
+    <button class="btn-primary">Shop All Products</button>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-logo">APEX BIO</div>
+    <div class="footer-links">
+      <a href="#">Products</a>
+      <a href="#">Lab Results</a>
+      <a href="#">Blog</a>
+      <a href="#">FAQ</a>
+      <a href="#">Contact</a>
+    </div>
+    <p>© 2026 Apex Bio. These statements have not been evaluated by the FDA.</p>
+  </footer>
+
 </body>
 </html>
