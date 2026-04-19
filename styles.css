@@ -115,12 +115,18 @@ a:hover { color: #fff; }
   margin: 0 auto; padding: 0 2rem; text-align: center;
 }
 .hero-avatar {
-  width: 130px; height: 130px; border-radius: 50%; margin: 0 auto 1.5rem;
+  width: 120px; height: 120px; min-width: 120px; min-height: 120px;
+  border-radius: 50%; margin: 0 auto 1.5rem;
   border: 3px solid var(--accent);
   box-shadow: 0 0 30px var(--accent-glow), 0 0 0 6px rgba(99,102,241,0.1);
-  overflow: hidden;
+  overflow: hidden; display: block; position: relative;
 }
-.hero-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: center top; }
+.hero-avatar img {
+  position: absolute; top: 0; left: 0;
+  width: 120px; height: 120px;
+  object-fit: cover; object-position: center top;
+  border-radius: 50%;
+}
 
 .hero-greeting {
   font-family: var(--font-mono); color: var(--accent-light);
