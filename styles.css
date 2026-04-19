@@ -124,7 +124,7 @@ a:hover { color: #fff; }
 .hero-avatar img {
   position: absolute; top: 0; left: 0;
   width: 120px; height: 120px;
-  object-fit: cover; object-position: center top;
+  object-fit: cover; object-position: center 20%;
   border-radius: 50%;
 }
 
