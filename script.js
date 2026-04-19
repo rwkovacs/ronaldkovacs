@@ -6,11 +6,11 @@ window.addEventListener('scroll', () => {
 
 // ===== TYPEWRITER =====
 const phrases = [
-  'Full-Stack Engineer',
-  'System Architect',
-  'Open Source Contributor',
-  'Performance Obsessive',
-  'Problem Solver',
+  'Full-Stack Developer',
+  'MEAN / MERN Specialist',
+  'React & Angular Engineer',
+  'Cloud-Native Builder',
+  'API & Database Expert',
 ];
 let phraseIdx = 0, charIdx = 0, deleting = false;
 const typedEl = document.getElementById('typed');
